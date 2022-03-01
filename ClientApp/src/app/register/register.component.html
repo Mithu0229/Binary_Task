@@ -1,0 +1,61 @@
+<div class="col-md-12">
+    <div class="card card-container">
+        <img
+          id="profile-img"
+          src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+          class="profile-img-card"
+        />
+      <form
+      [formGroup]="fb"
+        (ngSubmit)="register()"
+        
+      >
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" formControlName="name" />
+          <span class="text-danger"
+               *ngIf='(fb.get("name")?.errors && fb.get("name")?.touched)'>
+               Name is required
+              </span>
+         
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" formControlName="email" />
+          <span class="text-danger"
+               *ngIf='(fb.get("email")?.errors && fb.get("email")?.touched)'>
+               Email is required
+              </span>
+         
+        </div>
+        <div class="form-group">
+          <label for="userName">UserName</label>
+          <input type="text" class="form-control" formControlName="userName" />
+          <span class="text-danger"
+               *ngIf='(fb.get("userName")?.errors && fb.get("userName")?.touched)'>
+               UserName is required
+              </span>
+         
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" formControlName="password" />
+          <span class="text-danger"
+               *ngIf='(fb.get("password")?.errors && fb.get("password")?.touched)'>
+               Password is required
+              </span>
+              
+        </div>
+        <div class="form-group">
+            <button type="submit" [disabled]='!fb.valid' class="btn btn-primary btn-block">Register</button>
+          
+        </div>
+  
+      </form>
+  
+        <div class="alert alert-success" *ngIf="isSuccessful">
+         You have already account <a href="/login" class="button">Log In</a>
+         </div>
+     
+    </div>
+  </div>
